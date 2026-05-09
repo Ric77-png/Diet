@@ -50,10 +50,10 @@ class AuthController extends BaseController
 
         // Stocker en session
         $this->session->set([
-            'userId'     => $user['id'],
-            'nom'        => $user['nom'],
-            'email'      => $user['email'],
-            'role'       => $user['role'],
+            'userId' => $user['id'],
+            'nom' => $user['nom'],
+            'email' => $user['email'],
+            'role' => $user['role'],
             'isLoggedIn' => true
         ]);
 
@@ -61,7 +61,7 @@ class AuthController extends BaseController
         if ($user['role'] == 'admin') {
             return $this->response->setJSON([
                 'success' => true,
-                'redirect' => '/admin/regimes'
+                'redirect' => '/admin'  // ← maintenant vers dashboard admin
             ]);
         }
 

@@ -10,6 +10,14 @@ $routes->get('/', 'AuthController::login');
 $routes->get('/login', 'AuthController::login');
 $routes->post('/login', 'AuthController::attemptLogin');
 $routes->get('/logout', 'AuthController::logout');
+$routes->get('/admin', 'AdminController::index', ['filter' => 'auth']);
+
+// CRUD Clients
+$routes->group('admin/clients', ['filter' => 'auth'], function($routes) {
+    $routes->get('/', 'ClientController::index');
+    $routes->get('view/(:num)', 'ClientController::view/$1');
+    $routes->delete('delete/(:num)', 'ClientController::delete/$1');
+});
 
 // CRUD Régimes
 $routes->group('admin/regimes', ['filter' => 'auth'], function($routes) {

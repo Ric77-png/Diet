@@ -21,3 +21,12 @@ INSERT INTO users (nom, email, password, genre, taille, poids, role) VALUES
 -- password: client123
 INSERT INTO users (nom, email, password, genre, taille, poids, objectif_id, role) VALUES
 ('Client Test', 'client@diet.com', 'client123', 'masculin', 1.80, 85, 1, 'client');
+
+-- Insérer les paramètres par défaut (si la table est vide)
+INSERT INTO parametres (cle, valeur, description) VALUES
+('prix_gold', '49.99', 'Prix de l\'option Gold en euros'),
+('reduction_gold_pourcent', '15', 'Réduction pour les membres Gold (en %)'),
+('imc_normal_min', '18.5', 'IMC minimum pour la catégorie normal'),
+('imc_normal_max', '24.9', 'IMC maximum pour la catégorie normal'),
+('suggestion_duree_defaut', '30', 'Durée par défaut des suggestions (en jours)')
+ON DUPLICATE KEY UPDATE valeur = VALUES(valeur);

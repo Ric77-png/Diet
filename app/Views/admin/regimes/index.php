@@ -5,26 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des régimes</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; }
-        h1 { margin-bottom: 20px; color: #333; }
-        .btn { display: inline-block; padding: 10px 15px; text-decoration: none; border-radius: 5px; margin-right: 10px; }
-        .btn-add { background: #28a745; color: white; }
-        .btn-edit { background: #007bff; color: white; }
-        .btn-delete { background: #dc3545; color: white; border: none; cursor: pointer; }
-        .btn-back { background: #6c757d; color: white; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background: #f8f9fa; }
-        .alert { padding: 10px; margin-bottom: 20px; border-radius: 5px; }
-        .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .alert-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-    </style>
+    <?= view('admin/styles') ?>
 </head>
 <body>
-    <div class="container">
+    <?= view('admin/navbar') ?>
+    
+    <div class="page-container">
+        <div class="content-container">
         <h1>Gestion des régimes alimentaires</h1>
         
         <?php if(session()->getFlashdata('success')): ?>
@@ -69,6 +56,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
+        </div>
     </div>
 
     <script>
