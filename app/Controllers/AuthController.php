@@ -18,9 +18,9 @@ class AuthController extends BaseController
     // Afficher la page de login
     public function login()
     {
-        // Si déjà connecté, rediriger vers dashboard
+        // Si déjà connecté, rediriger vers admin/regimes
         if ($this->session->get('isLoggedIn')) {
-            return redirect()->to('/dashboard');
+            return redirect()->to('/admin/regimes');
         }
 
         return view('auth/login');
@@ -57,9 +57,18 @@ class AuthController extends BaseController
             'isLoggedIn' => true
         ]);
 
+        // Redirection selon le rôle
+        if ($user['role'] == 'admin') {
+            return $this->response->setJSON([
+                'success' => true,
+                'redirect' => '/admin/regimes'
+            ]);
+        }
+
+        // Pour les clients (non-admin)
         return $this->response->setJSON([
             'success' => true,
-            'redirect' => '/dashboard'
+            'redirect' => '/admin/regimes'  // ou une autre page client
         ]);
     }
 
