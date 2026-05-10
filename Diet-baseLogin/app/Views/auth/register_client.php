@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Diet App</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -20,33 +21,83 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Éléments de décoration arrière-plan */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 20%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .register-wrapper {
+            position: relative;
+            z-index: 1;
         }
 
         .register-container {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 50px 40px 40px 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(102, 126, 234, 0.1);
             width: 100%;
-            max-width: 500px;
+            max-width: 550px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Décoration supérieure */
+        .register-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+        }
+
+        /* En-tête avec icône */
+        .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
         }
 
         h2 {
-            text-align: center;
             color: #333;
-            margin-bottom: 30px;
+            margin-bottom: 12px;
             font-size: 28px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 14px;
+            font-weight: 400;
         }
 
         .form-group {
             margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         label {
-            display: block;
+            display: flex;
+            align-items: center;
             margin-bottom: 8px;
             color: #555;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 14px;
         }
 
@@ -56,12 +107,13 @@
         input[type="number"],
         select {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
+            padding: 13px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
             font-size: 14px;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
             font-family: inherit;
+            background: #fafafa;
         }
 
         input[type="text"]:focus,
@@ -71,7 +123,8 @@
         select:focus {
             outline: none;
             border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1), inset 0 1px 3px rgba(0,0,0,0.05);
+            background: white;
         }
 
         .row {
@@ -87,8 +140,9 @@
         .error-message {
             color: #d32f2f;
             font-size: 12px;
-            margin-top: 5px;
+            margin-top: 6px;
             display: none;
+            font-weight: 500;
         }
 
         .form-group.has-error input,
@@ -101,36 +155,60 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 12px;
-            background-color: #f5f5f5;
-            border-radius: 8px;
-            border: 2px solid #ddd;
-            font-weight: 500;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border-radius: 12px;
+            border: 2px solid #667eea;
+            font-weight: 600;
             color: #333;
+            backdrop-filter: blur(10px);
         }
 
         .imc-value {
-            font-size: 20px;
+            font-size: 24px;
             color: #667eea;
+            font-weight: 700;
         }
 
         button {
             width: 100%;
-            padding: 14px;
+            padding: 15px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 16px;
-            font-weight: 600;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-top: 20px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            margin-top: 25px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        button:hover:not(:disabled)::before {
+            left: 100%;
         }
 
         button:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active:not(:disabled) {
+            transform: translateY(-1px);
         }
 
         button:disabled {
@@ -140,38 +218,55 @@
 
         .message {
             text-align: center;
-            margin-top: 15px;
-            padding: 12px;
-            border-radius: 8px;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 12px;
             display: none;
+            font-weight: 600;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .error {
-            background-color: #ffebee;
-            color: #d32f2f;
-            border: 1px solid #d32f2f;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            color: #c62828;
+            border: 2px solid #d32f2f;
+            box-shadow: 0 3px 10px rgba(211, 47, 47, 0.2);
         }
 
         .success {
-            background-color: #e8f5e9;
-            color: #2e7d32;
-            border: 1px solid #2e7d32;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            color: #1b5e20;
+            border: 2px solid #2e7d32;
+            box-shadow: 0 3px 10px rgba(46, 125, 50, 0.2);
         }
 
         .login-link {
             text-align: center;
-            margin-top: 20px;
-            color: #666;
+            margin-top: 25px;
+            color: #999;
             font-size: 14px;
         }
 
         .login-link a {
             color: #667eea;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            transition: all 0.3s ease;
         }
 
         .login-link a:hover {
+            color: #764ba2;
             text-decoration: underline;
         }
 
@@ -183,13 +278,13 @@
 
         .spinner {
             display: none;
-            width: 16px;
-            height: 16px;
+            width: 18px;
+            height: 18px;
             border: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top-color: white;
             animation: spin 0.8s linear infinite;
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
         @keyframes spin {
@@ -206,8 +301,10 @@
 
         .form-section {
             margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #f0f0f0;
+            position: relative;
+            z-index: 1;
         }
 
         .form-section:last-of-type {
@@ -215,20 +312,45 @@
         }
 
         .section-title {
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             color: #667eea;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            margin-right: 10px;
         }
 
         @media (max-width: 600px) {
             .register-container {
-                padding: 25px;
+                padding: 30px 20px;
+                border-radius: 15px;
+            }
+
+            .logo-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
             }
 
             h2 {
                 font-size: 24px;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
+            }
+
+            .subtitle {
+                font-size: 13px;
             }
 
             .row {
@@ -238,23 +360,47 @@
             .passwords-row {
                 grid-template-columns: 1fr;
             }
+
+            button {
+                padding: 13px;
+                font-size: 15px;
+            }
+
+            .message {
+                margin-top: 15px;
+                padding: 12px;
+                font-size: 13px;
+            }
+
+            .imc-display {
+                padding: 14px;
+            }
+
+            .imc-value {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="register-container">
-        <h2>Créer un compte</h2>
+    <div class="register-wrapper">
+        <div class="register-container">
+            <!-- Header avec logo -->
+            <div class="header-section">
+                <h2>Créer un compte</h2>
+                <p class="subtitle">Rejoignez notre communauté de santé</p>
+            </div>
 
-        <form id="registerForm">
-            <!-- Section Informations Personnelles -->
-            <div class="form-section">
-                <div class="section-title">Informations Personnelles</div>
+            <form id="registerForm">
+                <!-- Section Informations Personnelles -->
+                <div class="form-section">
+                    <div class="section-title">Informations Personnelles</div>
 
-                <div class="form-group">
-                    <label for="nom">Nom complet *</label>
-                    <input type="text" id="nom" name="nom" placeholder="Ex: Jean Dupont" required>
-                    <div class="error-message"></div>
-                </div>
+                    <div class="form-group">
+                        <label for="nom">Nom complet *</label>
+                        <input type="text" id="nom" name="nom" placeholder="Ex: Jean Dupont" required>
+                        <div class="error-message"></div>
+                    </div>
 
                 <div class="form-group">
                     <label for="email">Email *</label>
@@ -394,7 +540,7 @@
                     if (response.success) {
                         $('#registerForm')[0].reset();
                         $('#successMsg')
-                            .text('✓ ' + response.message)
+                            .text(response.message)
                             .show();
 
                         setTimeout(function() {
@@ -412,14 +558,14 @@
                             });
                         } else {
                             $('#errorMsg')
-                                .text('✗ ' + (response.message || 'Une erreur s\'est produite.'))
+                                .text(response.message || 'Une erreur s\'est produite.')
                                 .show();
                         }
                     }
                 },
                 error: function() {
                     $('#errorMsg')
-                        .text('✗ Une erreur s\'est produite. Veuillez réessayer.')
+                        .text('Une erreur s\'est produite. Veuillez réessayer.')
                         .show();
                 },
                 complete: function() {
@@ -470,5 +616,6 @@
             }
         });
     </script>
+    </div>
 </body>
 </html>
