@@ -310,6 +310,100 @@ class GoldController extends BaseController
         ]);
     }
 
+    // Afficher les achats Gold en attente (ADMIN)
+    public function managePurchases()
+    {
+        if (!$this->isAdmin()) {
+            return redirect()->to('/client');
+        }
+
+        $goldPurchaseModel = new \App\Models\GoldPurchaseModel();
+        
+        // Récupérer les achats en attente
+        $purchases = $goldPurchaseModel
+            ->where('statut', 'en_attente')
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
+        // Enrichir avec les données utilisateur
+        foreach ($purchases as &$purchase) {
+            $purchase['user'] = $this->userModel->find($purchase['user_id']);
+        }
+
+        // Statistiques
+        $en_attente = $goldPurchaseModel->where('statut', 'en_attente')->countAllResults();
+        $montant_total = $goldPurchaseModel
+            ->where('statut', 'en_attente')
+            ->selectSum('montant')
+            ->get()
+            ->getRow();
+        
+        $codes_assignes = $goldPurchaseModel->where('statut', 'approuve')->countAllResults();
+
+        // Codes disponibles
+        $available_codes = $this->goldCodeModel
+            ->where('utilise', false)
+            ->findAll();
+
+        return view('admin/gold_purchases', [
+            'purchases' => $purchases,
+            'en_attente' => $en_attente,
+            'montant_total' => $montant_total ? $montant_total->montant : 0,
+            'codes_assignes' => $codes_assignes,
+            'available_codes' => $available_codes
+        ]);
+    }
+
+    // Assigner un code à un achat et approuver (ADMIN - AJAX)
+    public function assignCodeToPurchase()
+    {
+        if (!$this->isAdmin()) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Accès refusé']);
+        }
+
+        $purchaseId = $this->request->getPost('purchase_id');
+        $codeGoldId = $this->request->getPost('code_gold_id');
+
+        if (!$purchaseId || !$codeGoldId) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Paramètres invalides']);
+        }
+
+        $goldPurchaseModel = new \App\Models\GoldPurchaseModel();
+        $purchase = $goldPurchaseModel->find($purchaseId);
+        $code = $this->goldCodeModel->find($codeGoldId);
+
+        if (!$purchase || !$code) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Achat ou code non trouvé']);
+        }
+
+        if ($purchase['statut'] !== 'en_attente') {
+            return $this->response->setJSON(['success' => false, 'message' => 'Cet achat a déjà été traité']);
+        }
+
+        if ($code['utilise']) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Ce code a déjà été utilisé']);
+        }
+
+        // Mettre à jour l'achat
+        $goldPurchaseModel->update($purchaseId, [
+            'statut' => 'approuve',
+            'code_gold_id' => $codeGoldId
+        ]);
+
+        // Marquer le code comme utilisé
+        $this->goldCodeModel->update($codeGoldId, [
+            'utilise' => true,
+            'utilisateur_id' => $purchase['user_id']
+        ]);
+
+        // TODO: Envoyer un email au client avec le code
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Code assigné et achat approuvé'
+        ]);
+    }
+
     // Vérifier si l'utilisateur est admin
     private function isAdmin()
     {

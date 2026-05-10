@@ -40,6 +40,15 @@ class ClientController extends BaseController
         return view('client/activites', ['user' => $user]);
     }
 
+    // Page du portefeuille
+    public function wallet()
+    {
+        $userId = session()->get('userId');
+        $user = $this->userModel->find($userId);
+
+        return view('client/wallet', ['user' => $user]);
+    }
+
     // Afficher la liste des clients (admin)
     public function index()
     {

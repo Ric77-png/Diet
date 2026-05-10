@@ -63,16 +63,24 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
         $routes->post('assign', 'GoldController::assignToClient');
     });
     
+    // Achats Gold en attente (ADMIN)
+    $routes->group('admin/gold-purchases', function($routes) {
+        $routes->get('/', 'GoldController::managePurchases');
+        $routes->post('assign', 'GoldController::assignCodeToPurchase');
+    });
+    
     // Routes clients
     $routes->get('/client', 'ClientController::dashboard');
     $routes->get('/client/dashboard', 'ClientController::dashboard');
     $routes->get('/client/regimes', 'ClientController::regimes');
     $routes->get('/client/activites', 'ClientController::activites');
+    $routes->get('/client/wallet', 'ClientController::wallet');
     
     // Wallet et Gold
     $routes->post('wallet/validate-code', 'WalletController::validateCode');
+    $routes->post('wallet/recharge', 'WalletController::recharge');
+    $routes->post('wallet/buy-gold', 'WalletController::buyGold');
     $routes->get('wallet/balance', 'WalletController::getBalance');
     $routes->get('gold/subscribe', 'GoldController::subscribe');
-    $routes->post('gold/purchase', 'GoldController::purchase');
     $routes->post('gold/validate-code', 'GoldController::validateCode');
 });

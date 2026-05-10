@@ -91,9 +91,9 @@
         </div>
 
         <div class="card">
-            <h2>🎫 Ajouter de l'argent avec un code</h2>
-            <input type="text" id="code" placeholder="Entrez votre code promo" maxlength="50">
-            <button id="validateBtn">Valider le code</button>
+            <h2>➕ Ajouter de l'argent</h2>
+            <input type="number" id="montant" placeholder="Montant à ajouter (€)" min="1" step="0.01">
+            <button id="ajouterBtn">Ajouter</button>
             <div id="message" class="message"></div>
         </div>
     </div>
@@ -113,24 +113,24 @@
             });
         }
 
-        // Valider un code
-        $('#validateBtn').on('click', function() {
-            var code = $('#code').val();
+        // Ajouter de l'argent au portefeuille
+        $('#ajouterBtn').on('click', function() {
+            var montant = parseFloat($('#montant').val());
             
-            if (code === '') {
-                showMessage('Veuillez entrer un code', 'error');
+            if (!montant || montant <= 0) {
+                showMessage('Veuillez entrer un montant valide', 'error');
                 return;
             }
 
             $.ajax({
-                url: '/wallet/validate-code',
+                url: '/wallet/recharge',
                 type: 'POST',
-                data: { code: code },
+                data: { montant: montant },
                 dataType: 'json',
                 success: function(response) {
                     if (response.success) {
                         showMessage(response.message, 'success');
-                        $('#code').val('');
+                        $('#montant').val('');
                         loadBalance(); // Recharger le solde
                     } else {
                         showMessage(response.message, 'error');

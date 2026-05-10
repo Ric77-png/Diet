@@ -240,7 +240,7 @@
         // Acheter avec portefeuille
         $('#purchaseBtn').click(function() {
             if (confirm('Confirmer l\'achat de Gold pour <?= number_format($prix_gold, 2) ?> € ?')) {
-                $.post('/gold/purchase', {}, function(response) {
+                $.post('/wallet/buy-gold', {}, function(response) {
                     let $msg = $('#purchaseMessage');
                     if (response.success) {
                         $msg.removeClass('error').addClass('success').text(response.message).show();
