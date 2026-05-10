@@ -72,12 +72,18 @@
 <body>
     <div class="login-container">
         <h2>Connexion</h2>
+        <?php if (session()->getFlashdata('success')): ?>
+            <div id="successMsg" class="success" style="display:block;">
+                <?= esc(session()->getFlashdata('success')) ?>
+            </div>
+        <?php else: ?>
+            <div id="successMsg" class="success"></div>
+        <?php endif; ?>
         <form id="loginForm">
             <input type="email" id="email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Mot de passe" required>
             <button type="submit">Se connecter</button>
             <div id="errorMsg" class="error"></div>
-            <div id="successMsg" class="success"></div>
         </form>
         <div class="register-link">
             <a href="/register">Pas encore de compte ? S'inscrire</a>

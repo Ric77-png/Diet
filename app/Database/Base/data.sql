@@ -22,6 +22,23 @@ INSERT INTO users (nom, email, password, genre, taille, poids, role) VALUES
 INSERT INTO users (nom, email, password, genre, taille, poids, objectif_id, role) VALUES
 ('Client Test', 'client@diet.com', 'client123', 'masculin', 1.80, 85, 1, 'client');
 
+INSERT INTO regimes (nom, description, pourcentage_viande, pourcentage_poisson, pourcentage_volaille, effet_poids_par_semaine, prix_par_jour) VALUES
+('Equilibre', 'Regime polyvalent pour stabiliser le poids.', 40, 30, 30, 0.00, 12.00),
+('Leger', 'Regime hypocalorique pour reduire le poids.', 20, 40, 40, -0.60, 9.50),
+('Proteine', 'Regime riche en proteines pour augmenter le poids.', 50, 20, 30, 0.45, 14.00),
+('Ocean', 'Regime base sur le poisson pour une silhouette plus fine.', 10, 70, 20, -0.35, 13.00),
+('Volaille', 'Regime riche en volaille et en fibres.', 20, 10, 70, 0.10, 11.00);
+
+-- ============================================
+-- INSERER 5 ACTIVITES SPORTIVES
+-- ============================================
+INSERT INTO activites (nom, duree_minutes, calories_par_heure, difficulte) VALUES
+('Marche rapide', 45, 280, 'facile'),
+('Course legere', 30, 520, 'moyen'),
+('Cyclisme', 40, 450, 'moyen'),
+('Natation', 35, 600, 'difficile'),
+('Yoga dynamique', 50, 220, 'facile');
+
 -- Insérer les paramètres par défaut (si la table est vide)
 INSERT INTO parametres (cle, valeur, description) VALUES
 ('prix_gold', '49.99', 'Prix de l\'option Gold en euros'),
