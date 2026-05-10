@@ -83,4 +83,7 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('wallet/balance', 'WalletController::getBalance');
     $routes->get('gold/subscribe', 'GoldController::subscribe');
     $routes->post('gold/validate-code', 'GoldController::validateCode');
+    
+    // Maintenance
+    $routes->get('/maintenance/hash-passwords', 'MaintenanceController::hashPasswords');
 });
