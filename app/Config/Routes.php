@@ -45,6 +45,13 @@ $routes->group('admin/parametres', ['filter' => 'auth'], function($routes) {
     $routes->post('update/(:any)', 'ParametreController::update/$1');
 });
 
+// Routes clients
+$routes->group('client', ['filter' => 'auth'], function($routes) {
+    $routes->get('/', 'ClientController::dashboard');
+    $routes->get('regimes', 'ClientController::regimes');
+    $routes->get('activites', 'ClientController::activites');
+});
+
 // Wallet et Gold
 $routes->post('wallet/validate-code', 'WalletController::validateCode');
 $routes->get('wallet/balance', 'WalletController::getBalance');

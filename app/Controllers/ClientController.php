@@ -13,7 +13,34 @@ class ClientController extends BaseController
         $this->userModel = new UserModel();
     }
 
-    // Afficher la liste des clients
+    // Dashboard client
+    public function dashboard()
+    {
+        $userId = session()->get('userId');
+        $user = $this->userModel->find($userId);
+
+        return view('client/dashboard', ['user' => $user]);
+    }
+
+    // Page des régimes du client
+    public function regimes()
+    {
+        $userId = session()->get('userId');
+        $user = $this->userModel->find($userId);
+
+        return view('client/regimes', ['user' => $user]);
+    }
+
+    // Page des activités du client
+    public function activites()
+    {
+        $userId = session()->get('userId');
+        $user = $this->userModel->find($userId);
+
+        return view('client/activites', ['user' => $user]);
+    }
+
+    // Afficher la liste des clients (admin)
     public function index()
     {
         $clients = $this->userModel
@@ -23,7 +50,7 @@ class ClientController extends BaseController
         return view('admin/clients/index', ['clients' => $clients]);
     }
 
-    // Afficher les détails d'un client
+    // Afficher les détails d'un client (admin)
     public function view($id)
     {
         $client = $this->userModel->find($id);
@@ -35,7 +62,7 @@ class ClientController extends BaseController
         return view('admin/clients/view', ['client' => $client]);
     }
 
-    // Supprimer un client
+    // Supprimer un client (admin)
     public function delete($id)
     {
         $client = $this->userModel->find($id);

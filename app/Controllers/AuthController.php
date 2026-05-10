@@ -61,14 +61,14 @@ class AuthController extends BaseController
         if ($user['role'] == 'admin') {
             return $this->response->setJSON([
                 'success' => true,
-                'redirect' => '/admin'  // ← maintenant vers dashboard admin
+                'redirect' => '/admin'
             ]);
         }
 
         // Pour les clients (non-admin)
         return $this->response->setJSON([
             'success' => true,
-            'redirect' => '/admin/regimes'  // ou une autre page client
+            'redirect' => '/client'
         ]);
     }
 
