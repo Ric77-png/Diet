@@ -129,12 +129,37 @@
 
         .row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 20px;
         }
 
         .row.full {
             grid-template-columns: 1fr;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 45px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #667eea;
+            font-size: 18px;
+            padding: 0;
+            width: auto;
+            margin: 0;
+            box-shadow: none;
+            transition: color 0.3s;
+            z-index: 10;
+        }
+
+        .toggle-password:hover {
+            color: #764ba2;
         }
 
         .error-message {
@@ -270,12 +295,6 @@
             text-decoration: underline;
         }
 
-        .passwords-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
         .spinner {
             display: none;
             width: 18px;
@@ -357,10 +376,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .passwords-row {
-                grid-template-columns: 1fr;
-            }
-
             button {
                 padding: 13px;
                 font-size: 15px;
@@ -408,18 +423,15 @@
                     <div class="error-message"></div>
                 </div>
 
-                <div class="passwords-row">
-                    <div class="form-group">
-                        <label for="password">Mot de passe *</label>
+                <div class="form-group">
+                    <label for="password">Mot de passe *</label>
+                    <div class="password-wrapper">
                         <input type="password" id="password" name="password" placeholder="Minimum 6 caractères" required>
-                        <div class="error-message"></div>
+                        <button type="button" class="toggle-password" id="togglePassword" title="Afficher/Masquer le mot de passe">
+                            <i class="fas fa-eye"></i>
+                        </button>
                     </div>
-
-                    <div class="form-group">
-                        <label for="password_confirm">Confirmer le mot de passe *</label>
-                        <input type="password" id="password_confirm" name="password_confirm" placeholder="Confirmez le mot de passe" required>
-                        <div class="error-message"></div>
-                    </div>
+                    <div class="error-message"></div>
                 </div>
             </div>
 
@@ -437,18 +449,16 @@
                     <div class="error-message"></div>
                 </div>
 
-                <div class="row">
-                    <div class="form-group">
-                        <label for="taille">Taille (cm) *</label>
-                        <input type="number" id="taille" name="taille" placeholder="Ex: 175" min="50" max="250" step="0.1" required>
-                        <div class="error-message"></div>
-                    </div>
+                <div class="form-group">
+                    <label for="taille">Taille (cm) *</label>
+                    <input type="number" id="taille" name="taille" placeholder="Ex: 175" min="50" max="250" step="0.1" required>
+                    <div class="error-message"></div>
+                </div>
 
-                    <div class="form-group">
-                        <label for="poids">Poids (kg) *</label>
-                        <input type="number" id="poids" name="poids" placeholder="Ex: 75" min="20" max="300" step="0.1" required>
-                        <div class="error-message"></div>
-                    </div>
+                <div class="form-group">
+                    <label for="poids">Poids (kg) *</label>
+                    <input type="number" id="poids" name="poids" placeholder="Ex: 75" min="20" max="300" step="0.1" required>
+                    <div class="error-message"></div>
                 </div>
 
                 <div class="form-group">
@@ -509,6 +519,21 @@
             updateIMC();
         });
 
+        // Bouton afficher/masquer mot de passe
+        $('#togglePassword').on('click', function(e) {
+            e.preventDefault();
+            const passwordInput = $('#password');
+            const icon = $(this).find('i');
+
+            if (passwordInput.attr('type') === 'password') {
+                passwordInput.attr('type', 'text');
+                icon.removeClass('fa-eye').addClass('fa-eye-slash');
+            } else {
+                passwordInput.attr('type', 'password');
+                icon.removeClass('fa-eye-slash').addClass('fa-eye');
+            }
+        });
+
         // Soumission du formulaire
         $('#registerForm').on('submit', function(e) {
             e.preventDefault();
@@ -530,7 +555,6 @@
                     nom: $('#nom').val(),
                     email: $('#email').val(),
                     password: $('#password').val(),
-                    password_confirm: $('#password_confirm').val(),
                     genre: $('#genre').val(),
                     taille: $('#taille').val(),
                     poids: $('#poids').val(),
