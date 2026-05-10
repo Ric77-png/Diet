@@ -83,22 +83,37 @@ class GoldController extends BaseController
             ]);
         }
 
-        // Déduire du portefeuille
-        $nouveauSolde = $user['wallet_balance'] - $prix;
+        // Créer une demande d'achat Gold (statut en attente)
+        $goldPurchaseModel = new \App\Models\GoldPurchaseModel();
+        $purchaseId = $goldPurchaseModel->insert([
+            'user_id' => $userId,
+            'montant' => $prix,
+            'statut' => 'en_attente'
+        ]);
 
-        // Activer Gold
+        // Créer une notification pour l'admin
+        $notificationModel = new \App\Models\NotificationModel();
+        $admins = $this->userModel->where('role', 'admin')->findAll();
+        
+        foreach ($admins as $admin) {
+            $notificationModel->createNotification(
+                $admin['id'],
+                'Nouveau paiement Gold en attente',
+                $user['nom'] . ' a payé ' . number_format($prix, 2, ',', ' ') . ' € pour l\'abonnement Gold',
+                'warning',
+                ['user_id' => $userId, 'purchase_id' => $purchaseId]
+            );
+        }
+
+        // Déduire du portefeuille immédiatement
+        $nouveauSolde = $user['wallet_balance'] - $prix;
         $this->userModel->update($userId, [
-            'is_gold' => true,
-            'gold_purchased_at' => date('Y-m-d H:i:s'),
             'wallet_balance' => $nouveauSolde
         ]);
 
-        // Mettre à jour la session
-        $this->session->set('is_gold', true);
-
         return $this->response->setJSON([
             'success' => true,
-            'message' => 'Félicitations ! Vous êtes maintenant membre Gold',
+            'message' => 'Paiement reçu ! En attente de validation par l\'administrateur',
             'nouveau_solde' => $nouveauSolde
         ]);
     }
@@ -408,6 +423,133 @@ class GoldController extends BaseController
     private function isAdmin()
     {
         return $this->session->get('role') === 'admin';
+    }
+
+    // Afficher les codes Gold et les achats en attente (dashboard admin)
+    public function codesAndPurchases()
+    {
+        if (!$this->isAdmin()) {
+            return redirect()->to('/client');
+        }
+
+        $goldPurchaseModel = new \App\Models\GoldPurchaseModel();
+        
+        // Récupérer tous les codes Gold avec info utilisateur
+        $codes = $this->goldCodeModel->findAll();
+        foreach ($codes as &$code) {
+            if ($code['utilisateur_id']) {
+                $code['user'] = $this->userModel->find($code['utilisateur_id']);
+            }
+        }
+
+        // Récupérer les achats en attente
+        $purchasesAttente = $goldPurchaseModel
+            ->where('statut', 'en_attente')
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
+        foreach ($purchasesAttente as &$purchase) {
+            $purchase['user'] = $this->userModel->find($purchase['user_id']);
+        }
+
+        // Récupérer les achats approuvés
+        $purchasesApprouves = $goldPurchaseModel
+            ->where('statut', 'approuve')
+            ->orderBy('updated_at', 'DESC')
+            ->findAll();
+
+        foreach ($purchasesApprouves as &$purchase) {
+            $purchase['user'] = $this->userModel->find($purchase['user_id']);
+            if ($purchase['code_gold_id']) {
+                $purchase['code'] = $this->goldCodeModel->find($purchase['code_gold_id']);
+            }
+        }
+
+        // Statistiques
+        $stats = [
+            'codes_total' => count($codes),
+            'codes_utilises' => count(array_filter($codes, fn($c) => $c['utilise'])),
+            'codes_disponibles' => count(array_filter($codes, fn($c) => !$c['utilise'])),
+            'achats_en_attente' => count($purchasesAttente),
+            'achats_approuves' => count($purchasesApprouves),
+        ];
+
+        return view('admin/gold_codes_and_purchases', [
+            'codes' => $codes,
+            'purchasesAttente' => $purchasesAttente,
+            'purchasesApprouves' => $purchasesApprouves,
+            'stats' => $stats
+        ]);
+    }
+
+    // Envoyer un code Gold au client (crée une notification)
+    public function sendCodeToClient()
+    {
+        if (!$this->isAdmin()) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Accès refusé']);
+        }
+
+        $purchaseId = $this->request->getPost('purchase_id');
+        $codeId = $this->request->getPost('code_id');
+
+        if (!$purchaseId || !$codeId) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Données manquantes']);
+        }
+
+        $goldPurchaseModel = new \App\Models\GoldPurchaseModel();
+        $notificationModel = new \App\Models\NotificationModel();
+
+        // Vérifier que la demande d'achat existe
+        $purchase = $goldPurchaseModel->find($purchaseId);
+        if (!$purchase) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Demande non trouvée']);
+        }
+
+        // Vérifier que le code existe
+        $code = $this->goldCodeModel->find($codeId);
+        if (!$code) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Code non trouvé']);
+        }
+
+        // Vérifier que le code n'est pas déjà utilisé
+        if ($code['utilise']) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Ce code a déjà été utilisé']);
+        }
+
+        // Récupérer le client
+        $client = $this->userModel->find($purchase['user_id']);
+
+        // Marquer le code comme utilisé et l'assigner au client
+        $this->goldCodeModel->update($codeId, [
+            'utilise' => 1,
+            'utilisateur_id' => $purchase['user_id']
+        ]);
+
+        // Activer Gold pour le client
+        $this->userModel->update($purchase['user_id'], [
+            'is_gold' => 1,
+            'gold_purchased_at' => date('Y-m-d H:i:s')
+        ]);
+
+        // Mettre à jour la demande d'achat
+        $goldPurchaseModel->update($purchaseId, [
+            'statut' => 'approuve',
+            'code_gold_id' => $codeId
+        ]);
+
+        // Créer une notification pour le client
+        $notificationModel->createNotification(
+            $purchase['user_id'],
+            'Code Gold reçu !',
+            'Votre demande Gold a été approuvée. Voici votre code: ' . $code['code'] . ' (' . $code['duree_jours'] . ' jours)',
+            'success',
+            ['code' => $code['code'], 'duree_jours' => $code['duree_jours']]
+        );
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Code envoyé au client ' . $client['nom']
+        ]);
     }
 }
 

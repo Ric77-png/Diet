@@ -61,9 +61,11 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
     // Gestion des codes Gold (ADMIN)
     $routes->group('admin/gold', function($routes) {
         $routes->get('/', 'GoldController::manageCodes');
+        $routes->get('codes-and-purchases', 'GoldController::codesAndPurchases');
         $routes->post('generate', 'GoldController::generateCode');
         $routes->post('delete', 'GoldController::deleteCode');
         $routes->post('assign', 'GoldController::assignToClient');
+        $routes->post('send-code-to-client', 'GoldController::sendCodeToClient');
     });
     
     // Achats Gold en attente (ADMIN)
@@ -78,6 +80,11 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('/client/regimes', 'ClientController::regimes');
     $routes->get('/client/activites', 'ClientController::activites');
     $routes->get('/client/wallet', 'ClientController::wallet');
+    $routes->get('/client/notifications', 'NotificationController::index');
+    
+    // Notifications
+    $routes->post('notifications/mark-as-read/(:num)', 'NotificationController::markAsRead/$1');
+    $routes->get('notifications/unread-count', 'NotificationController::getUnreadCount');
     
     // Wallet et Gold
     $routes->post('wallet/validate-code', 'WalletController::validateCode');

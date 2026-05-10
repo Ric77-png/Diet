@@ -130,13 +130,6 @@ class AuthController extends BaseController
                     'min_length' => 'Le mot de passe doit contenir au moins 6 caractères.'
                 ]
             ],
-            'password_confirm' => [
-                'rules' => 'required|matches[password]',
-                'errors' => [
-                    'required' => 'La confirmation du mot de passe est requise.',
-                    'matches' => 'Les mots de passe ne correspondent pas.'
-                ]
-            ],
             'genre' => [
                 'rules' => 'required|in_list[M,F]',
                 'errors' => [
