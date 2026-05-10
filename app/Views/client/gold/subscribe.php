@@ -10,7 +10,7 @@
         body { font-family: Arial; background: #f4f4f4; }
         
         .navbar {
-            background: #343a40;
+            background: #3686d6;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
@@ -152,7 +152,7 @@
 </head>
 <body>
     <div class="navbar">
-        <h2>🏠 Option Gold</h2>
+        <h2>Option Gold</h2>
         <div>
             <a href="/client">Mon compte</a>
             <a href="/logout" class="logout-btn">Déconnexion</a>
@@ -162,7 +162,7 @@
     <div class="container">
         <!-- Banner Gold -->
         <div class="card gold-banner">
-            <h1>⭐ GOLD MEMBERSHIP ⭐</h1>
+            <h1> GOLD MEMBERSHIP </h1>
             <p style="font-size: 20px; margin-top: 10px;">Accédez à l'expérience premium</p>
         </div>
 
@@ -175,22 +175,22 @@
         <?php else: ?>
             <!-- Avantages Gold -->
             <div class="card">
-                <h2>✨ Avantages Gold</h2>
+                <h2> Avantages Gold</h2>
                 <div class="features">
                     <div class="feature">
-                        <strong>📊</strong> Suivi avancé
+                        <strong></strong> Suivi avancé
                         <p>Analyses détaillées de votre progression</p>
                     </div>
                     <div class="feature">
-                        <strong>🎯</strong> Plans personnalisés
+                        <strong></strong> Plans personnalisés
                         <p>Régimes et activités sur mesure</p>
                     </div>
                     <div class="feature">
-                        <strong>💬</strong> Support prioritaire
+                        <strong></strong> Support prioritaire
                         <p>Assistance 24/7 dédiée</p>
                     </div>
                     <div class="feature">
-                        <strong>🎁</strong> <?= $reduction_gold ?>% de réduction
+                        <strong></strong> <?= $reduction_gold ?>% de réduction
                         <p>Sur tous les régimes premium</p>
                     </div>
                 </div>
@@ -212,7 +212,7 @@
 
                 <!-- Options d'achat -->
                 <div class="buttons">
-                    <button class="btn-wallet" id="purchaseBtn">💳 Acheter avec mon porte-monnaie</button>
+                    <button class="btn-wallet" id="purchaseBtn"> Acheter avec mon porte-monnaie</button>
                 </div>
 
                 <div id="purchaseMessage" class="message" style="margin-top: 15px;"></div>
@@ -220,7 +220,7 @@
 
             <!-- Code d'activation -->
             <div class="card">
-                <h2>🎫 Vous avez un code Gold ?</h2>
+                <h2> Vous avez un code Gold ?</h2>
                 <p style="margin-bottom: 15px;">Entrez votre code d'activation pour débloquer Gold gratuitement</p>
                 <div class="code-input-group">
                     <input type="text" id="goldCode" placeholder="Entrez votre code Gold" maxlength="50">

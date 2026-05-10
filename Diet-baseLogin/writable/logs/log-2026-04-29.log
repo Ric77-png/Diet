@@ -1,0 +1,205 @@
+DEBUG - 2026-04-29 05:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-29 05:54:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "livres/index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Bibliotheque.php(19): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Bibliotheque->alllivres()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 05:55:36 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "livres/index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Bibliotheque.php(19): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Bibliotheque->alllivres()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 05:59:29 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "livres/index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Bibliotheque.php(19): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Bibliotheque->alllivres()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:10:59 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "livres/index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:40 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:41 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:42 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:42 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:42 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:42 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:42 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:42 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()
+CRITICAL - 2026-04-29 06:11:43 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "   index.php"
+[Method: GET, Route: /]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 39.
+ 1 SYSTEMPATH/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile()
+ 2 SYSTEMPATH/Common.php(1250): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Matiere.php(10): view()
+ 4 SYSTEMPATH/CodeIgniter.php(951): App\Controllers\Matiere->index()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest()
+ 7 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter()
+ 9 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb()

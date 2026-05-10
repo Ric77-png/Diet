@@ -10,7 +10,7 @@
         body { font-family: Arial; background: #f4f4f4; }
         
         .navbar {
-            background: #343a40;
+            background: #2e81d4;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
@@ -68,7 +68,7 @@
 </head>
 <body>
     <div class="navbar">
-        <h2>🏠 Mon espace client</h2>
+        <h2> Mon espace client</h2>
         <div>
             <a href="/client">Mon compte</a>
             <a href="/gold/subscribe">Option Gold</a>
@@ -78,20 +78,20 @@
 
     <div class="container">
         <div class="card">
-            <h2>👋 Bonjour, <?= session()->get('nom') ?></h2>
+            <h2> Bonjour, <?= session()->get('nom') ?></h2>
             <p>Email : <?= session()->get('email') ?></p>
             <?php if(session()->get('is_gold')): ?>
-                <p style="color: #d4af37; font-weight: bold;">⭐ Membre Gold ⭐</p>
+                <p style="color: #d4af37; font-weight: bold;"> Membre Gold </p>
             <?php endif; ?>
         </div>
 
         <div class="card">
-            <h2>💰 Mon porte-monnaie</h2>
+            <h2> Mon porte-monnaie</h2>
             <p>Solde actuel : <span class="wallet-balance" id="walletBalance">0</span> €</p>
         </div>
 
         <div class="card">
-            <h2>➕ Ajouter de l'argent</h2>
+            <h2> Ajouter de l'argent</h2>
             <input type="number" id="montant" placeholder="Montant à ajouter (€)" min="1" step="0.01">
             <button id="ajouterBtn">Ajouter</button>
             <div id="message" class="message"></div>

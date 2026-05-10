@@ -1,0 +1,45 @@
+CRITICAL - 2026-04-20 12:03:22 --> Error: Class "CodeIgniter\Models\Etudiant" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Controller.php on line 7.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Controller->Cont()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 12:03:51 --> Error: Class "CodeIgniter\Models\Etudiant" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Controller.php on line 7.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Controller->Cont()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 12:05:10 --> Error: Class "CodeIgniter\Models\Etudiant" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Controller.php on line 7.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Controller->Cont()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 12:05:13 --> Error: Class "CodeIgniter\Models\Etudiant" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Controller.php on line 7.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Controller->Cont()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-20 12:06:52 --> Error: Class "CodeIgniter\Models\Etudiant" not found
+[Method: GET, Route: /]
+in APPPATH\Controllers\Controller.php on line 7.
+ 1 SYSTEMPATH\CodeIgniter.php(951): App\Controllers\Controller->Cont()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Controller))
+ 3 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
