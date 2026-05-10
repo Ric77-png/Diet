@@ -103,3 +103,13 @@ CREATE TABLE suggestions (
     FOREIGN KEY (regime_id) REFERENCES regimes(id) ON DELETE CASCADE,
     FOREIGN KEY (activite_id) REFERENCES activites(id) ON DELETE CASCADE
 );
+
+CREATE TABLE gold_codes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    code VARCHAR(50) NOT NULL UNIQUE,
+    duree_jours INT DEFAULT 30,
+    utilise BOOLEAN DEFAULT FALSE,
+    utilisateur_id INT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (utilisateur_id) REFERENCES users(id) ON DELETE SET NULL
+);

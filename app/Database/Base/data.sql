@@ -30,3 +30,10 @@ INSERT INTO parametres (cle, valeur, description) VALUES
 ('imc_normal_max', '24.9', 'IMC maximum pour la catégorie normal'),
 ('suggestion_duree_defaut', '30', 'Durée par défaut des suggestions (en jours)')
 ON DUPLICATE KEY UPDATE valeur = VALUES(valeur);
+
+INSERT INTO gold_codes (code, duree_jours, utilise) VALUES
+('GOLD2026MAY001', 30, FALSE),
+('GOLD2026MAY002', 30, FALSE),
+('GOLD2026MAY003', 30, FALSE),
+('PROMO30DAYS', 30, FALSE),
+('FREEGOLD', 30, FALSE);

@@ -16,12 +16,12 @@
 
         <div class="cards">
             <div class="card">
-                <h3>� Clients</h3>
+                <h3>👥 Clients</h3>
                 <p>Gérer les utilisateurs clients</p>
                 <a href="/admin/clients">Accéder</a>
             </div>
             <div class="card">
-                <h3>�📋 Régimes</h3>
+                <h3>📋 Régimes</h3>
                 <p>Gérer les régimes alimentaires</p>
                 <a href="/admin/regimes">Accéder</a>
             </div>
@@ -29,6 +29,11 @@
                 <h3>🏃 Activités</h3>
                 <p>Gérer les activités sportives</p>
                 <a href="/admin/activites">Accéder</a>
+            </div>
+            <div class="card">
+                <h3>🏆 Codes Gold</h3>
+                <p>Générer les codes d'abonnement premium</p>
+                <a href="/admin/gold">Accéder</a>
             </div>
             <div class="card">
                 <h3>⚙️ Paramètres</h3>

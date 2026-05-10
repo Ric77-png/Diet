@@ -70,7 +70,7 @@
     <div class="navbar">
         <h2>🏠 Mon espace client</h2>
         <div>
-            <a href="/client/dashboard">Mon compte</a>
+            <a href="/client">Mon compte</a>
             <a href="/gold/subscribe">Option Gold</a>
             <a href="/logout" class="logout-btn">Déconnexion</a>
         </div>
@@ -80,7 +80,7 @@
         <div class="card">
             <h2>👋 Bonjour, <?= session()->get('nom') ?></h2>
             <p>Email : <?= session()->get('email') ?></p>
-            <?php if(session()->get('isGold')): ?>
+            <?php if(session()->get('is_gold')): ?>
                 <p style="color: #d4af37; font-weight: bold;">⭐ Membre Gold ⭐</p>
             <?php endif; ?>
         </div>
