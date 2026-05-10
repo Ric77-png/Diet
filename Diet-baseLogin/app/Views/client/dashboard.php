@@ -87,7 +87,7 @@
 
         <div class="card">
             <h2> Mon porte-monnaie</h2>
-            <p>Solde actuel : <span class="wallet-balance" id="walletBalance">0</span> €</p>
+            <p>Solde actuel : <span class="wallet-balance" id="walletBalance"><?= $solde ?? 0 ?></span> €</p>
         </div>
 
         <div class="card">
@@ -154,8 +154,8 @@
             }, 3000);
         }
 
-        // Initialisation
-        loadBalance();
+        // Initialisation - NE PAS charger au démarrage car la valeur PHP est déjà affichée
+        // loadBalance() sera appelé après une recharge réussie seulement
     </script>
 </body>
 </html>

@@ -19,7 +19,15 @@ class ClientController extends BaseController
         $userId = session()->get('userId');
         $user = $this->userModel->find($userId);
 
-        return view('client/dashboard', ['user' => $user]);
+        // Vérifier que l'utilisateur existe
+        if (!$user) {
+            return redirect()->to('/login');
+        }
+
+        return view('client/dashboard', [
+            'user' => $user,
+            'solde' => $user['wallet_balance'] ?? 0
+        ]);
     }
 
     // Page des régimes du client
