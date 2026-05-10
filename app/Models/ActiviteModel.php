@@ -14,7 +14,5 @@ class ActiviteModel extends Model
         'calories_par_heure',
         'difficulte'
     ];
-    protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = null;
+    protected $useTimestamps = false;
 }

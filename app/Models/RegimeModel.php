@@ -17,7 +17,5 @@ class RegimeModel extends Model
         'effet_poids_par_semaine', 
         'prix_par_jour'
     ];
-    protected $useTimestamps = true;
-    protected $createdField = 'created_at';
-    protected $updatedField = null;
+    protected $useTimestamps = false;
 }

@@ -50,9 +50,9 @@ class RegimeController extends BaseController
 
         $rules = [
             'nom'                    => 'required|min_length[3]',
-            'pourcentage_viande'     => 'required|integer|between[0,100]',
-            'pourcentage_poisson'    => 'required|integer|between[0,100]',
-            'pourcentage_volaille'   => 'required|integer|between[0,100]',
+            'pourcentage_viande'     => 'required|integer|greater_than_equal_to[0]|less_than_equal_to[100]',
+            'pourcentage_poisson'    => 'required|integer|greater_than_equal_to[0]|less_than_equal_to[100]',
+            'pourcentage_volaille'   => 'required|integer|greater_than_equal_to[0]|less_than_equal_to[100]',
             'effet_poids_par_semaine'=> 'required|decimal',
             'prix_par_jour'          => 'required|decimal|greater_than[0]'
         ];
@@ -108,9 +108,9 @@ class RegimeController extends BaseController
 
         $rules = [
             'nom'                    => 'required|min_length[3]',
-            'pourcentage_viande'     => 'required|integer|between[0,100]',
-            'pourcentage_poisson'    => 'required|integer|between[0,100]',
-            'pourcentage_volaille'   => 'required|integer|between[0,100]',
+            'pourcentage_viande'     => 'required|integer|greater_than_equal_to[0]|less_than_equal_to[100]',
+            'pourcentage_poisson'    => 'required|integer|greater_than_equal_to[0]|less_than_equal_to[100]',
+            'pourcentage_volaille'   => 'required|integer|greater_than_equal_to[0]|less_than_equal_to[100]',
             'effet_poids_par_semaine'=> 'required|decimal',
             'prix_par_jour'          => 'required|decimal|greater_than[0]'
         ];
